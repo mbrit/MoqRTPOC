@@ -168,6 +168,7 @@ namespace Moq
 		[SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes")]
 		private void SetFileInfo()
 		{
+#if !NETFX_CORE
 			try
 			{
 				var thisMethod = MethodBase.GetCurrentMethod();
@@ -190,6 +191,9 @@ namespace Moq
 			{
 				// Must NEVER fail, as this is a nice-to-have feature only.
 			}
+#else
+            throw new NotImplementedException();
+#endif
 		}
 
 		public void SetOutParameters(ICallContext call)
@@ -274,7 +278,7 @@ namespace Moq
 				else
 				{
 					var argsFuncType = mockEventArgsFunc.GetType();
-					if (argsFuncType.IsGenericType && argsFuncType.GetGenericArguments().Length == 1)
+					if (argsFuncType.IsGenericType() && argsFuncType.GetGenericArguments().Length == 1)
 					{
 						this.Mock.DoRaise(this.mockEvent, (EventArgs)mockEventArgsFunc.InvokePreserveStack());
 					}
@@ -313,7 +317,7 @@ namespace Moq
 		protected virtual void SetCallbackWithArguments(Delegate callback)
 		{
 			var expectedParams = this.Method.GetParameters();
-			var actualParams = callback.Method.GetParameters();
+			var actualParams = callback.GetMethodInfo().GetParameters();
 
 			if (expectedParams.Length == actualParams.Length)
 			{

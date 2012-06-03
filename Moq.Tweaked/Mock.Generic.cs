@@ -41,6 +41,7 @@
 using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq.Expressions;
+using System.Reflection;
 using Moq.Language.Flow;
 using Moq.Proxy;
 using Moq.Language;
@@ -113,7 +114,7 @@ namespace Moq
 		{
 			typeof(T).ThrowIfNotMockeable();
 
-			if (typeof(T).IsInterface && this.constructorArguments.Length > 0)
+			if (typeof(T).IsInterface() && this.constructorArguments.Length > 0)
 			{
 				throw new ArgumentException(Resources.ConstructorArgsForInterface);
 			}

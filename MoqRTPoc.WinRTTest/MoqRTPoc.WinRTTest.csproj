@@ -109,12 +109,7 @@
     <SDKReference Include="TestPlatform, Version=11.0" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\MoqRTPoc.Net35Test\IFoo.cs">
-      <Link>IFoo.cs</Link>
-    </Compile>
-    <Compile Include="..\MoqRTPoc.Net35Test\PocTest.cs">
-      <Link>PocTest.cs</Link>
-    </Compile>
+    <Compile Include="Demo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -138,10 +133,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="MoqRT, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\MoqRT\bin\Debug\MoqRT.dll</HintPath>
-    </Reference>
+    <ProjectReference Include="..\MoqRT\MoqRT.csproj">
+      <Project>{f19a77e8-3866-4e6b-801f-b71fa5936716}</Project>
+      <Name>MoqRT</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
     <VisualStudioVersion>11.0</VisualStudioVersion>

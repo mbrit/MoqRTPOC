@@ -52,10 +52,10 @@ namespace Moq.Linq
 	internal class FluentMockVisitor : ExpressionVisitor
 	{
 		private static readonly MethodInfo fluentMockGenericMethod = ((Func<Mock<string>, Expression<Func<string, string>>, Mock<string>>)
-			QueryableMockExtensions.FluentMock<string, string>).Method.GetGenericMethodDefinition();
+			QueryableMockExtensions.FluentMock<string, string>).GetMethodInfo().GetGenericMethodDefinition();
 
 		private static readonly MethodInfo mockGetGenericMethod = ((Func<string, Mock<string>>)Mock.Get<string>)
-			.Method.GetGenericMethodDefinition();
+			.GetMethodInfo().GetGenericMethodDefinition();
 
 		private Expression expression;
 

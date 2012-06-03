@@ -40,24 +40,32 @@
 
 using System;
 using System.Reflection;
+#if !NETFX_CORE
 using System.Security.Permissions;
+#endif
 using Castle.DynamicProxy;
 using Castle.DynamicProxy.Generators;
 using Moq.Properties;
 using System.Diagnostics.CodeAnalysis;
+using System.Xml.Serialization;
+using System.IO;
 
 namespace Moq.Proxy
 {
 	internal class CastleProxyFactory : IProxyFactory
 	{
+#if !NETFX_CORE
 		private static readonly ProxyGenerator generator = CreateProxyGenerator();
+#endif
 
 		[SuppressMessage("Microsoft.Performance", "CA1810:InitializeReferenceTypeStaticFieldsInline", Justification = "By Design")]
 		static CastleProxyFactory()
 		{
+#if !NETFX_CORE
 #pragma warning disable 618
 			AttributesToAvoidReplicating.Add<SecurityPermissionAttribute>();
 #pragma warning restore 618
+#endif
 
 #if !SILVERLIGHT
 			AttributesToAvoidReplicating.Add<ReflectionPermissionAttribute>();
@@ -73,15 +81,35 @@ namespace Moq.Proxy
 		{
 			var mockType = typeof(T);
 
-			if (mockType.IsInterface)
+			if (mockType.IsInterface())
 			{
+#if !NETFX_CORE
 				return (T)generator.CreateInterfaceProxyWithoutTarget(mockType, interfaces, new Interceptor(interceptor));
+#else
+
+                var realInterceptorType = MoqRTRuntime.Baker.ProxyGenerator.GetType().Assembly().
+                    GetType("Castle.DynamicProxy.IInterceptor[]");
+
+                // get the method...
+                var method = MoqRTRuntime.Baker.ProxyGenerator.GetType().GetMethod("CreateInterfaceProxyWithoutTarget", 
+                    new Type[] { typeof(Type), typeof(Type[]), realInterceptorType });
+                return (T)method.Invoke(MoqRTRuntime.Baker.ProxyGenerator, new object[] { mockType, interfaces, 
+                    new Interceptor(interceptor) });
+
+                throw new NotImplementedException();
+
+#endif
 			}
 
 			try
 			{
-				return (T)generator.CreateClassProxy(mockType, interfaces, new ProxyGenerationOptions(), arguments, new Interceptor(interceptor));
-			}
+#if !NETFX_CORE
+				return (T)generator.CreateClassProxy(mockType, interfaces, new ProxyGenerationOptions(), arguments, 
+                    new Interceptor(interceptor));
+#else
+                throw new NotImplementedException();
+#endif
+            }
 			catch (TypeLoadException e)
 			{
 				throw new ArgumentException(Resources.InvalidMockClass, e);
@@ -92,12 +120,14 @@ namespace Moq.Proxy
 			}
 		}
 
+#if !NETFX_CORE
 		private static ProxyGenerator CreateProxyGenerator()
 		{
 			return new ProxyGenerator();
 		}
+#endif
 
-		private class Interceptor : IInterceptor
+        private class Interceptor : IInterceptor
 		{
 			private ICallInterceptor interceptor;
 

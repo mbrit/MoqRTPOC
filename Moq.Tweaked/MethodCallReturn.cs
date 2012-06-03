@@ -155,7 +155,7 @@ namespace Moq
 		{
 			base.Execute(call);
 
-			if (valueDel.Method.GetParameters().Length != 0)
+			if (valueDel.GetMethodInfo().GetParameters().Length != 0)
 				call.ReturnValue = valueDel.InvokePreserveStack(call.Arguments); //will throw if parameters mismatch
 			else
 				call.ReturnValue = valueDel.InvokePreserveStack(); //we need this, for the user to be able to use parameterless methods

@@ -54,6 +54,7 @@ namespace Moq
 		static readonly FieldInfo remoteStackTraceString = typeof(Exception).GetField("_remoteStackTraceString",
 										 BindingFlags.Instance | BindingFlags.NonPublic);
 
+#if !NETFX_CORE
 		public static TAttribute GetCustomAttribute<TAttribute>(this ICustomAttributeProvider source, bool inherit)
 			where TAttribute : Attribute
 		{
@@ -68,6 +69,7 @@ namespace Moq
 				return (TAttribute)attrs[0];
 			}
 		}
+#endif
 
 		public static string Format(this ICallContext invocation)
 		{
@@ -174,7 +176,7 @@ namespace Moq
 		{
 			// A value type does not match any of these three 
 			// condition and therefore returns false.
-			return typeToMock.IsInterface || typeToMock.IsAbstract || (typeToMock.IsClass && !typeToMock.IsSealed);
+			return typeToMock.IsInterface() || typeToMock.IsAbstract() || (typeToMock.IsClass() && !typeToMock.IsSealed());
 		}
 
 		public static bool CanOverride(this MethodBase method)

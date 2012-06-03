@@ -3,7 +3,11 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Net.Sockets;
 using System.Reflection;
+using System.Runtime.Remoting;
+using System.Runtime.Remoting.Channels;
+using System.Runtime.Remoting.Channels.Tcp;
 using System.Text;
 using System.Threading.Tasks;
 using Moq.Baking;
@@ -19,20 +23,32 @@ namespace MoqRTPoc.Baker
         {
             try
             {
-                // path...
+                // load the test assembly...
                 var path = Path.Combine(RootFolder, "MoqRTPoc.WinRTTest.dll");
-                
-                // watch...
                 var asm = Assembly.LoadFrom(path);
 
                 // find the moqrt runtime class - we have to do this via reflection...
-                Type rt = null;
                 AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
+
+                // load real moq...
+                Type bakerType = null;
                 foreach (var referenceName in asm.GetReferencedAssemblies().ToList().Where(v => v.Name.StartsWith("Moq")))
                 {
                     var reference = Assembly.Load(referenceName);
-                    rt = reference.GetType("Moq.MoqRTRuntime");
+
+                    // get...
+                    bakerType = reference.GetType("Moq.Baking.BakingController");
+                    if (bakerType != null)
+                        break;
                 }
+
+                // create...
+                var baker = Activator.CreateInstance(bakerType);
+
+                // get real moq...
+                var realMoq = Assembly.Load("Castle.Core");
+                var proxyGenType = realMoq.GetType("Castle.DynamicProxy.ProxyGenerator");
+                var proxyGen = Activator.CreateInstance(proxyGenType);
 
                 // reset the baking database...
                 var bakingPath = Path.Combine(RootFolder, "MoqRTBaking.db");
@@ -40,11 +56,11 @@ namespace MoqRTPoc.Baker
                     File.Delete(bakingPath);
 
                 // run...
-                var configureMethod = rt.GetMethod("ConfigureBaking", BindingFlags.Static | BindingFlags.Instance | BindingFlags.Public);
-                configureMethod.Invoke(null, new object[] { bakingPath });
+                var configureMethod = bakerType.GetMethod("InitializeBaking", BindingFlags.Instance | BindingFlags.Public);
+                configureMethod.Invoke(baker, new object[] { bakingPath, proxyGen });
 
                 // more...
-                var setRunningMethodMethod = rt.GetMethod("SetRunningMethod", BindingFlags.Static | BindingFlags.Public);
+                var setRunningMethodMethod = bakerType.GetMethod("SetRunningMethod", BindingFlags.Instance | BindingFlags.Public);
 
                 // walk...
                 var testInstances = new List<object>();
@@ -70,7 +86,7 @@ namespace MoqRTPoc.Baker
                                 Console.Write(string.Format("Running '{0}' on '{1}': ", method.Name, testInstance.GetType().Name));
 
                                 // tell it we're doing it...
-                                setRunningMethodMethod.Invoke(null, new object[] { testInstance, method });
+                                setRunningMethodMethod.Invoke(baker, new object[] { testInstance, method });
 
                                 // run it...
                                 try
@@ -132,8 +148,11 @@ namespace MoqRTPoc.Baker
 
         static Assembly CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args)
         {
+            string name = args.Name;
             int index = args.Name.IndexOf(",");
-            string path = Path.Combine(@"C:\Code\MoqRTPoc\MoqRT\bin\Debug", args.Name.Substring(0, index) + ".dll");
+            if (index != -1)
+                name = name.Substring(0, index);
+            string path = Path.Combine(@"C:\Code\MoqRTPoc\MoqRT\bin\Debug", name + ".dll");
             if (File.Exists(path))
                 return Assembly.LoadFrom(path);
             else

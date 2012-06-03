@@ -69,7 +69,7 @@ namespace Moq
 				return this.defaultValues[valueType];
 			}
 
-			return valueType.IsValueType ? GetValueTypeDefault(valueType) : GetReferenceTypeDefault(valueType);
+			return valueType.IsValueType() ? GetValueTypeDefault(valueType) : GetReferenceTypeDefault(valueType);
 		}
 
 		private static object GetReferenceTypeDefault(Type valueType)
@@ -86,12 +86,12 @@ namespace Moq
 			{
 				return new object[0].AsQueryable();
 			}
-			else if (valueType.IsGenericType && valueType.GetGenericTypeDefinition() == typeof(IEnumerable<>))
+            else if (valueType.IsGenericType() && valueType.GetGenericTypeDefinition() == typeof(IEnumerable<>))
 			{
 				var genericListType = typeof(List<>).MakeGenericType(valueType.GetGenericArguments()[0]);
 				return Activator.CreateInstance(genericListType);
 			}
-			else if (valueType.IsGenericType && valueType.GetGenericTypeDefinition() == typeof(IQueryable<>))
+            else if (valueType.IsGenericType() && valueType.GetGenericTypeDefinition() == typeof(IQueryable<>))
 			{
 				var genericType = valueType.GetGenericArguments()[0];
 				var genericListType = typeof(List<>).MakeGenericType(genericType);
@@ -108,7 +108,7 @@ namespace Moq
 		private static object GetValueTypeDefault(Type valueType)
 		{
 			// For nullable value types, return null.
-			if (valueType.IsGenericType && valueType.GetGenericTypeDefinition() == typeof(Nullable<>))
+            if (valueType.IsGenericType() && valueType.GetGenericTypeDefinition() == typeof(Nullable<>))
 			{
 				return null;
 			}

@@ -1,34 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
+﻿//using System;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Linq.Expressions;
+//using System.Text;
+//using System.Threading.Tasks;
+//using Moq.Driver;
+//using Moq.Language.Flow;
 
-namespace Moq.Baking
-{
-    internal class BakingSetup<TMock, TResult> : ISetup<TMock, TResult>
-        where TMock : class
-    {
-        private Expression<Func<TMock, TResult>> Expression { get; set; }
+//namespace Moq.Baking
+//{
+//    internal class BakingSetup<TMock, TResult> : ISetup<TMock, TResult>
+//        where TMock : class
+//    {
+//        private RealISetupWrapper<TMock, TResult> RealSetup { get; set; }
 
-        internal BakingSetup(Expression<Func<TMock, TResult>> expression)
-        {
-            this.Expression = expression;
-        }
+//        internal BakingSetup(RealMockWrapper<TMock> real, Expression<Func<TMock, TResult>> expression)
+//        {
+//            // create a real setup...
+//            object result = real.Invoke("Setup", new Type[] { typeof(TMock), typeof(TResult) }, 
+//                new Type[] { typeof(Expression<Func<TMock, TResult>>) }, expression);
+//            this.RealSetup = new RealISetupWrapper<TMock, TResult>(result);
+//        }
 
-        public void Returns(object value)
-        {
-            // track the call...
-            using (var conn = MoqRTRuntime.GetBakingConnection())
-            {
-                BakingItem item = new BakingItem() 
-                {
-                    MethodItemId = MoqRTRuntime.RunningMethod.Id,
-                    Expression = this.Expression.ToString()
-                };
-                conn.Insert(item);
-            }
-        }
-    }
-}
+//        public void Returns(object value)
+//        {
+//            // call...
+//            this.RealSetup.Invoke("Returns", null, new Type[] { typeof(object) }, value);
+//        }
+//    }
+//}

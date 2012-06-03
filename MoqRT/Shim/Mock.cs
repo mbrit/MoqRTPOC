@@ -10,9 +10,12 @@ using Moq.Baking;
 namespace Moq
 {
     // @mbrit - 2012-06-02 - we're abstract because we're always generated...
-    public abstract class Mock
+    public abstract class MockX
     {
-        protected Mock()
+        private DefaultValue defaultValue = DefaultValue.Empty;
+        private IDefaultValueProvider defaultValueProvider = new EmptyDefaultValueProvider();
+
+        protected MockX()
         {
         }
 

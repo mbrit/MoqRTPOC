@@ -57,7 +57,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Lib\Castle\net-35\Castle.DynamicProxy2.dll</HintPath>
     </Reference>-->
-    <Reference Include="Castle.Core">
+    <Reference Include="Castle.Core, Version=2.5.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Lib\Castle.Core.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -233,6 +234,7 @@
     <Compile Include="Proxy\IProxyFactory.cs" />
     <Compile Include="SetterMethodCall.cs" />
     <Compile Include="SetupSequentialContext.cs" />
+    <Compile Include="Shim\ReverseTypeExtender.cs" />
     <Compile Include="Times.cs" />
     <None Include="Includes\GenericTypeParameters.tt" />
     <None Include="MethodCall.tt">

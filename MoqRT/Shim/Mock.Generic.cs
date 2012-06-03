@@ -9,10 +9,10 @@ using Moq.Baking;
 namespace Moq
 {
     // @mbrit - 2012-06-02 - we're abstract because we're always generated...
-    public abstract class Mock<T> : Mock
+    public abstract class MockX<T> : MockX
         where T : class
     {
-        protected internal Mock()
+        protected internal MockX()
         {
         }
 
@@ -20,7 +20,5 @@ namespace Moq
         {
             get;
         }
-
-        public abstract ISetup<T, TResult> Setup<TResult>(Expression<Func<T, TResult>> expression);
     }
 }

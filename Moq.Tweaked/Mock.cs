@@ -566,7 +566,7 @@ namespace Moq
 
 				var x = Expression.Parameter(last.Invocation.Method.DeclaringType,
 					// Get the variable name as used in the actual delegate :)
-					setterExpression.Method.GetParameters()[0].Name);
+					setterExpression.GetMethodInfo().GetParameters()[0].Name);
 
 				var arguments = last.Invocation.Arguments;
 				var parameters = setter.GetParameters();
@@ -765,9 +765,9 @@ namespace Moq
 		private class FluentMockVisitor : ExpressionVisitor
 		{
 			static readonly MethodInfo FluentMockGenericMethod = ((Func<Mock<string>, Expression<Func<string, string>>, Mock<string>>)
-				QueryableMockExtensions.FluentMock<string, string>).Method.GetGenericMethodDefinition();
+				QueryableMockExtensions.FluentMock<string, string>).GetMethodInfo().GetGenericMethodDefinition();
 			static readonly MethodInfo MockGetGenericMethod = ((Func<string, Mock<string>>)Moq.Mock.Get<string>)
-				.Method.GetGenericMethodDefinition();
+				.GetMethodInfo().GetGenericMethodDefinition();
 
 			Expression expression;
 			Mock mock;
@@ -933,7 +933,7 @@ namespace Moq
 				throw new InvalidOperationException(Resources.AlreadyInitialized);
 			}
 
-			if (!typeof(TInterface).IsInterface)
+			if (!typeof(TInterface).IsInterface())
 			{
 				throw new ArgumentException(Resources.AsMustBeInterface);
 			}

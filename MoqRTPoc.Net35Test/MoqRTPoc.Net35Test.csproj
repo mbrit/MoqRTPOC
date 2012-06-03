@@ -47,8 +47,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="IFoo.cs" />
-    <Compile Include="PocTest.cs" />
+    <Compile Include="Demo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

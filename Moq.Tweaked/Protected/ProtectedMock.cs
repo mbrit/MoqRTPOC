@@ -234,7 +234,7 @@ namespace Moq.Protected
 				throw new ArgumentException(string.Format(
 					CultureInfo.CurrentCulture,
 					Resources.VerifyOnNonVirtualMember,
-					method.ReflectedType.Name + "." + method.Name));
+					method.ReflectedType().Name + "." + method.Name));
 			}
 		}
 
@@ -257,7 +257,7 @@ namespace Moq.Protected
 				throw new ArgumentException(string.Format(
 					CultureInfo.CurrentCulture,
 					Resources.MethodIsPublic,
-					method.ReflectedType.Name,
+					method.ReflectedType().Name,
 					method.Name));
 			}
 		}
@@ -269,7 +269,7 @@ namespace Moq.Protected
 				throw new ArgumentException(string.Format(
 					CultureInfo.CurrentCulture,
 					Resources.UnexpectedPublicProperty,
-					property.ReflectedType.Name,
+					property.ReflectedType().Name,
 					property.Name));
 			}
 		}
@@ -281,7 +281,7 @@ namespace Moq.Protected
 				throw new ArgumentException(string.Format(
 					CultureInfo.CurrentCulture,
 					Resources.UnexpectedPublicProperty,
-					property.ReflectedType.Name,
+					property.ReflectedType().Name,
 					property.Name));
 			}
 		}
@@ -321,7 +321,7 @@ namespace Moq.Protected
 				else if (expr.NodeType == ExpressionType.MemberAccess)
 				{
 					var member = (MemberExpression)expr;
-					switch (member.Member.MemberType)
+					switch (member.Member.MemberType())
 					{
 						case MemberTypes.Field:
 							types[index] = ((FieldInfo)member.Member).FieldType;

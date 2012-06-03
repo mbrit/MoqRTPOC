@@ -34,6 +34,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Remoting" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,15 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\MoqRT\Baking\BakingItem.cs">
-      <Link>BakingItem.cs</Link>
-    </Compile>
-    <Compile Include="..\MoqRT\Baking\InstanceItem.cs">
-      <Link>InstanceItem.cs</Link>
-    </Compile>
-    <Compile Include="..\MoqRT\Baking\MethodItem.cs">
-      <Link>MethodItem.cs</Link>
-    </Compile>
+    <Compile Include="BakingItem.cs" />
+    <Compile Include="IMyService.cs" />
+    <Compile Include="InstanceItem.cs" />
+    <Compile Include="MethodItem.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQLite.cs" />
@@ -57,7 +53,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Moq.Tweaked\Moq.Tweaked.csproj">
+      <Project>{1c91ac30-5977-4be5-ba67-8eb186c03514}</Project>
+      <Name>Moq.Tweaked</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="bin\Debug\sqlite3.dll" />
   </ItemGroup>

@@ -20,7 +20,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;NETFX_CORE, SILVERLIGHT</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -99,21 +99,935 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="..\Moq.Tweaked\AdvancedMatcherAttribute.cs">
+      <Link>Original\AdvancedMatcherAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\AsInterface.cs">
+      <Link>Original\AsInterface.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\ConditionalContext.cs">
+      <Link>Original\ConditionalContext.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\DefaultValue.cs">
+      <Link>Original\DefaultValue.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\EmptyDefaultValueProvider.cs">
+      <Link>Original\EmptyDefaultValueProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\Evaluator.cs">
+      <Link>Original\Evaluator.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\ExpressionExtensions.cs">
+      <Link>Original\ExpressionExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\ExpressionStringBuilder.cs">
+      <Link>Original\ExpressionStringBuilder.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\Extensions.cs">
+      <Link>Original\Extensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\FluentMockContext.cs">
+      <Link>Original\FluentMockContext.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\GlobalSuppressions.cs">
+      <Link>Original\GlobalSuppressions.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\Guard.cs">
+      <Link>Original\Guard.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\IDefaultValueProvider.cs">
+      <Link>Original\IDefaultValueProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\IHideObjectMembers.cs">
+      <Link>Original\IHideObjectMembers.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\IMatcher.cs">
+      <Link>Original\IMatcher.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\IMocked.cs">
+      <Link>Original\IMocked.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\Interceptor.cs">
+      <Link>Original\Interceptor.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\IProxyCall.cs">
+      <Link>Original\IProxyCall.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\It.cs">
+      <Link>Original\It.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\Language\Flow\ICallbackResult.cs">
+      <Link>Original\Language\Flow\ICallbackResult.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\Language\Flow\IReturnsResult.cs">
+      <Link>Original\Language\Flow\IReturnsResult.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\Language\Flow\IReturnsThrows.cs">
+      <Link>Original\Language\Flow\IReturnsThrows.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\Language\Flow\ISetup.cs">
+      <Link>Original\Language\Flow\ISetup.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\Language\Flow\IThrowsResult.cs">
+      <Link>Original\Language\Flow\IThrowsResult.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\Language\ICallback.cs">
+      <Link>Original\Language\ICallback.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\Language\ICallback.Generated.cs">
+      <Link>Original\Language\ICallback.Generated.cs</Link>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ICallback.tt</DependentUpon>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\Language\ICallbackGetter.cs">
+      <Link>Original\Language\ICallbackGetter.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\Language\ICallbackSetter.cs">
+      <Link>Original\Language\ICallbackSetter.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\Language\IRaise.cs">
+      <Link>Original\Language\IRaise.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\Language\IRaise.Generated.cs">
+      <Link>Original\Language\IRaise.Generated.cs</Link>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IRaise.tt</DependentUpon>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\Language\IReturns.cs">
+      <Link>Original\Language\IReturns.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\Language\IReturns.Generated.cs">
+      <Link>Original\Language\IReturns.Generated.cs</Link>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IReturns.tt</DependentUpon>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\Language\IReturnsGetter.cs">
+      <Link>Original\Language\IReturnsGetter.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\Language\ISetupConditionResult.cs">
+      <Link>Original\Language\ISetupConditionResult.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\Language\ISetupSequentialResult.cs">
+      <Link>Original\Language\ISetupSequentialResult.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\Language\IThrows.cs">
+      <Link>Original\Language\IThrows.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\Language\IVerifies.cs">
+      <Link>Original\Language\IVerifies.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\Linq\FluentMockVisitor.cs">
+      <Link>Original\Linq\FluentMockVisitor.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\Linq\Mock.cs">
+      <Link>Original\Linq\Mock.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\Linq\MockQuery.cs">
+      <Link>Original\Linq\MockQuery.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\Linq\MockRepository.cs">
+      <Link>Original\Linq\MockRepository.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\Linq\Mocks.cs">
+      <Link>Original\Linq\Mocks.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\Linq\MockSetupsBuilder.cs">
+      <Link>Original\Linq\MockSetupsBuilder.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\Match.cs">
+      <Link>Original\Match.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\MatcherAttribute.cs">
+      <Link>Original\MatcherAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\MatcherFactory.cs">
+      <Link>Original\MatcherFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\Matchers\ConstantMatcher.cs">
+      <Link>Original\Matchers\ConstantMatcher.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\Matchers\ExpressionComparer.cs">
+      <Link>Original\Matchers\ExpressionComparer.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\Matchers\ExpressionMatcher.cs">
+      <Link>Original\Matchers\ExpressionMatcher.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\Matchers\LazyEvalMatcher.cs">
+      <Link>Original\Matchers\LazyEvalMatcher.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\Matchers\Matcher.cs">
+      <Link>Original\Matchers\Matcher.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\Matchers\MatcherAttributeMatcher.cs">
+      <Link>Original\Matchers\MatcherAttributeMatcher.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\Matchers\ParamArrayMatcher.cs">
+      <Link>Original\Matchers\ParamArrayMatcher.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\Matchers\PredicateMatcher.cs">
+      <Link>Original\Matchers\PredicateMatcher.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\Matchers\RefMatcher.cs">
+      <Link>Original\Matchers\RefMatcher.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\MatchExpression.cs">
+      <Link>Original\MatchExpression.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\MemberInfoExtensions.cs">
+      <Link>Original\MemberInfoExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\MethodCall.cs">
+      <Link>Original\MethodCall.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\MethodCall.Generated.cs">
+      <Link>Original\MethodCall.Generated.cs</Link>
+      <DependentUpon>MethodCall.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\MethodCallReturn.cs">
+      <Link>Original\MethodCallReturn.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\MethodCallReturn.Generated.cs">
+      <Link>Original\MethodCallReturn.Generated.cs</Link>
+      <DependentUpon>MethodCallReturn.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\Microsoft\Delegates.cs">
+      <Link>Original\Microsoft\Delegates.cs</Link>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Delegates.tt</DependentUpon>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\Microsoft\ExpressionVisitor.cs">
+      <Link>Original\Microsoft\ExpressionVisitor.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\Mock.cs">
+      <Link>Original\Mock.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\Mock.Generic.cs">
+      <Link>Original\Mock.Generic.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\MockBehavior.cs">
+      <Link>Original\MockBehavior.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\MockDefaultValueProvider.cs">
+      <Link>Original\MockDefaultValueProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\MockException.cs">
+      <Link>Original\MockException.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\MockRepository.cs">
+      <Link>Original\MockRepository.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\MockSequence.cs">
+      <Link>Original\MockSequence.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\Obsolete\IOccurrence.cs">
+      <Link>Original\Obsolete\IOccurrence.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\Obsolete\Mock.Generic.Legacy.cs">
+      <Link>Original\Obsolete\Mock.Generic.Legacy.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\Obsolete\Mock.Legacy.cs">
+      <Link>Original\Obsolete\Mock.Legacy.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\Obsolete\MockExtensions.cs">
+      <Link>Original\Obsolete\MockExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\Obsolete\MockFactory.cs">
+      <Link>Original\Obsolete\MockFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\PexProtector.cs">
+      <Link>Original\PexProtector.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\Protected\IProtectedMock.cs">
+      <Link>Original\Protected\IProtectedMock.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\Protected\ItExpr.cs">
+      <Link>Original\Protected\ItExpr.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\Protected\ProtectedExtension.cs">
+      <Link>Original\Protected\ProtectedExtension.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\Protected\ProtectedMock.cs">
+      <Link>Original\Protected\ProtectedMock.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\Proxy\CastleProxyFactory.cs">
+      <Link>Original\Proxy\CastleProxyFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\Proxy\ICallContext.cs">
+      <Link>Original\Proxy\ICallContext.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\Proxy\ICallInterceptor.cs">
+      <Link>Original\Proxy\ICallInterceptor.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\Proxy\IProxyFactory.cs">
+      <Link>Original\Proxy\IProxyFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\Range.cs">
+      <Link>Original\Range.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\SequenceExtensions.cs">
+      <Link>Original\SequenceExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\SetterMethodCall.cs">
+      <Link>Original\SetterMethodCall.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\SetupKind.cs">
+      <Link>Original\SetupKind.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\SetupSequentialContext.cs">
+      <Link>Original\SetupSequentialContext.cs</Link>
+    </Compile>
+    <Compile Include="..\Moq.Tweaked\Times.cs">
+      <Link>Original\Times.cs</Link>
+    </Compile>
     <Compile Include="Baked\BakedMock.cs" />
     <Compile Include="Baked\BakedSetup.cs" />
-    <Compile Include="Baking\BakingItem.cs" />
-    <Compile Include="Baking\InstanceItem.cs" />
-    <Compile Include="Baking\MethodItem.cs" />
-    <Compile Include="Baking\SQLite.cs" />
+    <Compile Include="Baking\BakingSetup.cs" />
+    <Compile Include="Baking\Transactions\BakingItem.cs" />
+    <Compile Include="Baking\Transactions\InstanceItem.cs" />
+    <Compile Include="Baking\Transactions\MethodItem.cs" />
+    <Compile Include="Castle\AbstractInvocation.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\AllMethodsHook.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Contributors\ClassMembersCollector.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Contributors\ClassProxyInstanceContributor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Contributors\ClassProxyTargetContributor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Contributors\ClassProxyWithTargetTargetContributor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Contributors\CompositeTypeContributor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Contributors\DelegateProxyTargetContributor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Contributors\Delegates.cs" />
+    <Compile Include="Castle\Contributors\DelegateTypeGenerator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Contributors\ForwardingMethodGenerator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Contributors\InterfaceMembersCollector.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Contributors\InterfaceMembersOnClassCollector.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Contributors\InterfaceProxyInstanceContributor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Contributors\InterfaceProxyTargetContributor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Contributors\InterfaceProxyWithOptionalTargetContributor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Contributors\InterfaceProxyWithoutTargetContributor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Contributors\InterfaceProxyWithTargetInterfaceTargetContributor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Contributors\InvocationWithDelegateContributor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Contributors\InvocationWithGenericDelegateContributor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Contributors\ITypeContributor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Contributors\MembersCollector.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Contributors\MinimialisticMethodGenerator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Contributors\MixinContributor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Contributors\OptionallyForwardingMethodGenerator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Contributors\ProxyInstanceContributor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Contributors\WrappedClassMembersCollector.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DefaultProxyBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\AttributeDisassembler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\AttributesToAvoidReplicating.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\BaseProxyGenerator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\CacheKey.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\ClassProxyGenerator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\ClassProxyWithTargetGenerator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\CompositionInvocationTypeGenerator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\DelegateMembersCollector.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\DelegateProxyGenerationHook.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\DelegateProxyGenerator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\AbstractTypeEmitter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\ArgumentsUtil.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\ClassEmitter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\CodeBuilders\AbstractCodeBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\CodeBuilders\ConstructorCodeBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\CodeBuilders\MethodCodeBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\ConstructorCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\ConstructorEmitter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\EventCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\EventEmitter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\GenericUtil.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\IMemberEmitter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\LdcOpCodesDictionary.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\LdindOpCodesDictionary.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\MethodCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\MethodEmitter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\NestedClassCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\NestedClassEmitter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\OpCodeUtil.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\PropertiesCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\PropertyEmitter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\SimpleAST\AddressOfReferenceExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\SimpleAST\ArgumentReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\SimpleAST\AssignArgumentStatement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\SimpleAST\AssignArrayStatement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\SimpleAST\AssignStatement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\SimpleAST\AsTypeReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\SimpleAST\BindDelegateExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\SimpleAST\ByRefReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\SimpleAST\ConstReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\SimpleAST\ConstructorInvocationStatement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\SimpleAST\ConvertExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\SimpleAST\DefaultValueExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\SimpleAST\EndExceptionBlockStatement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\SimpleAST\ExplicitConvertExpression.cs" />
+    <Compile Include="Castle\Generators\Emitters\SimpleAST\Expression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\SimpleAST\ExpressionStatement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\SimpleAST\FieldReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\SimpleAST\FinallyStatement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\SimpleAST\IfNullExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\SimpleAST\IILEmitter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\SimpleAST\IndirectReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\SimpleAST\LiteralIntExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\SimpleAST\LoadArrayElementExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\SimpleAST\LoadRefArrayElementExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\SimpleAST\LocalReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\SimpleAST\MethodInvocationExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\SimpleAST\MethodTokenExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\SimpleAST\MultiStatementExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\SimpleAST\NewArrayExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\SimpleAST\NewInstanceExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\SimpleAST\NopStatement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\SimpleAST\NullCoalescingOperatorExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\SimpleAST\NullExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\SimpleAST\Reference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\SimpleAST\ReferenceExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\SimpleAST\ReferencesToObjectArrayExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\SimpleAST\ReturnReferenceExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\SimpleAST\ReturnStatement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\SimpleAST\SelfReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\SimpleAST\Statement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\SimpleAST\ThrowStatement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\SimpleAST\TryStatement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\SimpleAST\TypeReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\SimpleAST\TypeTokenExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\StindOpCodesDictionary.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\StrongNameUtil.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\TypeConstructorEmitter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\Emitters\TypeUtil.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\GeneratorException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\GeneratorUtil.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\IGenerator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\IInvocationCreationContributor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\INamingScope.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\InheritanceInvocationTypeGenerator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\InterfaceProxyWithoutTargetGenerator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\InterfaceProxyWithTargetGenerator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\InterfaceProxyWithTargetInterfaceGenerator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\InvocationTypeGenerator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\MetaEvent.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\MetaMethod.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\MetaProperty.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\MetaType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\MetaTypeElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\MethodFinder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\MethodGenerator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\MethodSignatureComparer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\MethodWithInvocationGenerator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\NamingScope.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Generators\TypeElementCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\IAttributeDisassembler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\IChangeProxyTarget.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\IInterceptor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\IInterceptorSelector.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\IInvocation.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Internal\AttributeUtil.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Internal\CompositionInvocation.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Internal\InheritanceInvocation.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Internal\InternalsUtil.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Internal\InvocationHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\InvalidMixinConfigurationException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\InvalidProxyConstructorArgumentsException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\IProxyBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\IProxyGenerationHook.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\IProxyTargetAccessor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\MixinData.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\ModuleScope.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\PersistentProxyBuilder.cs" />
+    <Compile Include="Castle\ProxyGenerationException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\ProxyGenerationOptions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\ProxyGenerator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\ProxyUtil.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Serialization\CacheMappingsAttribute.cs" />
+    <Compile Include="Castle\Serialization\ProxyObjectReference.cs" />
+    <Compile Include="Castle\Serialization\ProxyTypeConstants.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Serialization\RemotableInvocation.cs" />
+    <Compile Include="Castle\StandardInterceptor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Tokens\DelegateMethods.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Tokens\FormatterServicesMethods.cs" />
+    <Compile Include="Castle\Tokens\InvocationMethods.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Tokens\MethodBaseMethods.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Tokens\SerializationInfoMethods.cs" />
+    <Compile Include="Castle\Tokens\TypeBuilderMethods.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Tokens\TypeMethods.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Tokens\TypeUtilMethods.cs" />
+    <Compile Include="Castle\Util\AttributeUtil.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Util\DebugExtender.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Util\ILockHolder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Util\ILogger.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Util\InterfaceMapping.cs" />
+    <Compile Include="Castle\Util\IUpgradeableLockHolder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Util\Lock.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Util\MonitorLock.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Util\MonitorLockHolder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Util\MonitorUpgradeableLockHolder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Util\NoOpLock.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Util\NullLogger.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\Util\SerializableAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Driver\RealISetupWrapper.cs" />
+    <Compile Include="Driver\RealMockFactory.cs" />
+    <Compile Include="Driver\RealMockWrapper.cs" />
+    <Compile Include="Driver\RealMockMetadata.cs" />
+    <Compile Include="Driver\RealProxyGenerator.cs" />
+    <Compile Include="Driver\RealWrapper.cs" />
+    <Compile Include="Baking\BakingController.cs" />
+    <Compile Include="Original\!Special\ResourceManager.cs" />
+    <Compile Include="Original\!Special\Resources.cs" />
+    <Compile Include="Original\Proxy\IProxyGenerator.cs" />
+    <Compile Include="Runtime\MissingMethodException.cs" />
+    <Compile Include="Runtime\SQLite.cs" />
     <Compile Include="Baking\BakingMock.cs" />
+    <Compile Include="Runtime\Trace.cs" />
+    <Compile Include="Runtime\TypeExtender.cs" />
     <Compile Include="Shim\Mock.Generic.cs" />
-    <Compile Include="Shim\ISetup.cs" />
     <Compile Include="Shim\Mock.cs" />
     <Compile Include="Runtime\MoqRTRuntime.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Baking\BakingSetup.cs" />
     <Compile Include="Shim\ObjectReferencedInBakingException.cs" />
+    <Compile Include="Sre\AssemblyBuilder.cs" />
+    <Compile Include="Sre\AssemblyBuilderAccess.cs" />
+    <Compile Include="Sre\ConstructorBuilder.cs" />
+    <Compile Include="Sre\CustomAttributeBuilder.cs" />
+    <Compile Include="Sre\DynamicILInfo.cs" />
+    <Compile Include="Sre\DynamicMethod.cs" />
+    <Compile Include="Sre\EnumBuilder.cs" />
+    <Compile Include="Sre\EventBuilder.cs" />
+    <Compile Include="Sre\EventToken.cs" />
+    <Compile Include="Sre\ExceptionHandler.cs" />
+    <Compile Include="Sre\FieldBuilder.cs" />
+    <Compile Include="Sre\FieldToken.cs" />
+    <Compile Include="Sre\GenericTypeParameterBuilder.cs" />
+    <Compile Include="Sre\ILGenerator.cs" />
+    <Compile Include="Sre\Label.cs" />
+    <Compile Include="Sre\LocalBuilder.cs" />
+    <Compile Include="Sre\MethodBuilder.cs" />
+    <Compile Include="Sre\MethodRental.cs" />
+    <Compile Include="Sre\MethodToken.cs" />
+    <Compile Include="Sre\ModuleBuilder.cs" />
+    <Compile Include="Sre\ParameterBuilder.cs" />
+    <Compile Include="Sre\ParameterToken.cs" />
+    <Compile Include="Sre\PEFileKinds.cs" />
+    <Compile Include="Sre\PropertyBuilder.cs" />
+    <Compile Include="Sre\PropertyToken.cs" />
+    <Compile Include="Sre\Shim\Binder.cs" />
+    <Compile Include="Sre\Shim\ExceptionHandlingClauseOptions.cs" />
+    <Compile Include="Sre\Shim\ICustomAttributeProvider.cs" />
+    <Compile Include="Sre\Shim\MemberFilter.cs" />
+    <Compile Include="Sre\Shim\MethodBody.cs" />
+    <Compile Include="Sre\Shim\ParameterModifier.cs" />
+    <Compile Include="Sre\Shim\ResourceAttributes.cs" />
+    <Compile Include="Sre\Shim\TypeFilter.cs" />
+    <Compile Include="Sre\SignatureHelper.cs" />
+    <Compile Include="Sre\SignatureToken.cs" />
+    <Compile Include="Sre\StringToken.cs" />
+    <Compile Include="Sre\TypeBuilder.cs" />
+    <Compile Include="Sre\TypeToken.cs" />
+    <Compile Include="Sre\UnmanagedMarshal.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Moq.Tweaked\IDefaultValueProvider.xdoc">
+      <Link>Original\IDefaultValueProvider.xdoc</Link>
+      <DependentUpon>IDefaultValueProvider.cs</DependentUpon>
+    </None>
+    <None Include="..\Moq.Tweaked\ilmerge.exclude">
+      <Link>Original\ilmerge.exclude</Link>
+    </None>
+    <None Include="..\Moq.Tweaked\Includes\GenericTypeParameters.tt">
+      <Link>Original\Includes\GenericTypeParameters.tt</Link>
+    </None>
+    <None Include="..\Moq.Tweaked\It.xdoc">
+      <Link>Original\It.xdoc</Link>
+      <DependentUpon>It.cs</DependentUpon>
+    </None>
+    <None Include="..\Moq.Tweaked\Language\ICallback.tt">
+      <Link>Original\Language\ICallback.tt</Link>
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ICallback.Generated.cs</LastGenOutput>
+    </None>
+    <None Include="..\Moq.Tweaked\Language\IRaise.tt">
+      <Link>Original\Language\IRaise.tt</Link>
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>IRaise.Generated.cs</LastGenOutput>
+    </None>
+    <None Include="..\Moq.Tweaked\Language\IReturns.tt">
+      <Link>Original\Language\IReturns.tt</Link>
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>IReturns.Generated.cs</LastGenOutput>
+    </None>
+    <None Include="..\Moq.Tweaked\Match.xdoc">
+      <Link>Original\Match.xdoc</Link>
+      <DependentUpon>Match.cs</DependentUpon>
+    </None>
+    <None Include="..\Moq.Tweaked\MethodCall.tt">
+      <Link>Original\MethodCall.tt</Link>
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>MethodCall.Generated.cs</LastGenOutput>
+    </None>
+    <None Include="..\Moq.Tweaked\MethodCallReturn.tt">
+      <Link>Original\MethodCallReturn.tt</Link>
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>MethodCallReturn.Generated.cs</LastGenOutput>
+    </None>
+    <None Include="..\Moq.Tweaked\Microsoft\Delegates.tt">
+      <Link>Original\Microsoft\Delegates.tt</Link>
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Delegates.cs</LastGenOutput>
+    </None>
+    <None Include="..\Moq.Tweaked\Mock.Generic.xdoc">
+      <Link>Original\Mock.Generic.xdoc</Link>
+      <DependentUpon>Mock.Generic.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="..\Moq.Tweaked\Mock.xdoc">
+      <Link>Original\Mock.xdoc</Link>
+      <DependentUpon>Mock.cs</DependentUpon>
+    </None>
+    <None Include="..\Moq.Tweaked\Times.xdoc">
+      <Link>Original\Times.xdoc</Link>
+      <DependentUpon>Times.cs</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
     <VisualStudioVersion>11.0</VisualStudioVersion>
   </PropertyGroup>

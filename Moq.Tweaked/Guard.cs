@@ -42,6 +42,7 @@ using System;
 using System.Diagnostics;
 using System.Globalization;
 using System.Linq.Expressions;
+using System.Reflection;
 using Moq.Properties;
 
 namespace Moq
@@ -115,7 +116,7 @@ namespace Moq
 		{
 			if (!targetType.IsAssignableFrom(typeToAssign))
 			{
-				if (targetType.IsInterface)
+				if (targetType.IsInterface())
 				{
 					throw new ArgumentException(string.Format(
 						CultureInfo.CurrentCulture,

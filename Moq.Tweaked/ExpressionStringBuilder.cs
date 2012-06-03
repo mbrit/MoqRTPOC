@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
+using System.Runtime;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Collections.ObjectModel;
@@ -262,7 +263,7 @@ namespace Moq
 					// Perhaps is better without nothing (at least for local variables)
 					//builder.Append("<value>");
 				}
-				else if (c.Type.IsEnum)
+				else if (c.Type.IsEnum())
 				{
 					builder.Append(c.Type.DisplayName(this.getTypeName)).Append(".").Append(value);
 				}
@@ -319,7 +320,11 @@ namespace Moq
 				var paramFrom = 0;
 				var expression = node.Object;
 
+#if !NETFX_CORE
 				if (Attribute.GetCustomAttribute(node.Method, typeof(ExtensionAttribute)) != null)
+#else
+                if (CustomAttributeExtensions.GetCustomAttribute(node.Method, typeof(ExtensionAttribute)) != null)
+#endif
 				{
 					paramFrom = 1;
 					expression = node.Arguments[0];
@@ -634,7 +639,7 @@ namespace Moq
 			}
 			var builder = new StringBuilder(100);
 			builder.Append(getName(source).Split('`').First());
-			if (source.IsGenericType)
+			if (source.IsGenericType())
 			{
 				builder.Append("<");
 				builder.Append(source.GetGenericArguments().Select(t => getName(t)).AsCommaSeparatedValues());
